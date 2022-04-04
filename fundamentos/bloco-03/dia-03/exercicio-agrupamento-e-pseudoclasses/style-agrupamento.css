@@ -1,0 +1,26 @@
+* {
+  transition: background-color linear 100ms;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+h1,
+p {
+  text-align: center;
+}
+
+li:hover {
+  background-color: cadetblue;
+  cursor: pointer;
+}
+
+li:active {
+  font-family: fantasy;
+}
+
+ol,
+ul {
+  list-style: none;
+}
