@@ -71,7 +71,7 @@ h1 {
 }
 
 main {
-  width: 95%;
+  width: 92%;
   margin: auto;
 }
 
@@ -95,8 +95,45 @@ article {
   padding: 50px 0;
 }
 
-#article-section {
+#post-content {
+  display: inline-block;
+  max-width: 70%;
+}
+
+aside {
+  float: right;
+}
+
+.link-card {
+  background-color: #e5e5e5;
+  border: 1px solid coral;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.link-card a {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: green;
+}
+
+.link-card a,
+.link-card img {
+  display: block;
+}
+
+.article-section {
   text-align: justify;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.article-section:nth-last-of-type(1) {
+  border-bottom: none;
 }
 
 table {
