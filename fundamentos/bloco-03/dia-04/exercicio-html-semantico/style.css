@@ -100,6 +100,26 @@ article {
   max-width: 70%;
 }
 
+.article-section {
+  text-align: justify;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.article-section:nth-last-of-type(1) {
+  border-bottom: none;
+}
+
+table {
+  text-align: center;
+  float: right;
+  width: 250px;
+  background-color: #e5e5e5;
+  padding: 20px;
+  margin: 0 0 5px 20px;
+}
+
 aside {
   float: right;
 }
@@ -125,22 +145,14 @@ aside {
   display: block;
 }
 
-.article-section {
-  text-align: justify;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #d4d4d4;
-}
-
-.article-section:nth-last-of-type(1) {
-  border-bottom: none;
-}
-
-table {
+footer {
+  background-color: coral;
+  color: #f8f8f8;
+  height: 40px;
   text-align: center;
-  float: right;
-  width: 250px;
-  background-color: #e5e5e5;
-  padding: 20px;
-  margin: 0 0 5px 20px;
+}
+
+footer > p {
+  height: 100%;
+  padding: 10px;
 }
