@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100;300;400;500;600&display=swap");
 
+:root {
+  --primary: coral;
+  --main-green: green;
+  --main-dark: #0e0d0d;
+  --main-white: #f8f8f8;
+  --main-grey: #d4d4d4;
+  --dark-grey: #e5e5e5;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +22,7 @@ body {
 }
 
 nav {
-  background-color: coral;
+  background-color: var(--primary);
   height: 60px;
   position: fixed;
   width: 100%;
@@ -42,13 +51,13 @@ nav li {
 
 nav li a {
   text-decoration: none;
-  color: #e5e5e5;
+  color: var(--main-dark);
   font-size: 1.2rem;
 }
 
 header {
   position: relative;
-  background-color: #0e0d0d;
+  background-color: var(--main-dark);
   opacity: 0.88;
 }
 
@@ -67,7 +76,7 @@ h1 {
   position: absolute;
   bottom: 0;
   width: 100%;
-  color: #f8f8f8;
+  color: var(--main-white);
 }
 
 main {
@@ -78,7 +87,7 @@ main {
 #author-datetime {
   display: block;
   width: 100%;
-  border-top: 1px solid #d4d4d4;
+  border-top: 1px solid var(--main-grey);
   padding: 20px 0;
   font-weight: 300;
 }
@@ -104,7 +113,7 @@ article {
   text-align: justify;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid var(--main-grey);
 }
 
 .article-section:nth-last-of-type(1) {
@@ -115,7 +124,7 @@ table {
   text-align: center;
   float: right;
   width: 250px;
-  background-color: #e5e5e5;
+  background-color: var(--dark-grey);
   padding: 20px;
   margin: 0 0 5px 20px;
 }
@@ -132,19 +141,19 @@ aside {
 }
 
 .link-card {
-  background-color: #e5e5e5;
-  border: 1px solid coral;
+  background-color: var(--dark-grey);
+  border: 1px solid var(--primary);
   padding: 10px 20px;
   text-align: center;
 }
 
 .link-card a {
   text-decoration: none;
-  color: #ffffff;
+  color: var(--main-white);
   margin: 10px 0;
   padding: 10px;
   border-radius: 3px;
-  background-color: green;
+  background-color: var(--main-green);
 }
 
 .link-card a,
@@ -153,8 +162,7 @@ aside {
 }
 
 footer {
-  background-color: coral;
-  color: #f8f8f8;
+  background-color: var(--primary);
   height: 40px;
   text-align: center;
 }
@@ -162,4 +170,5 @@ footer {
 footer > p {
   height: 100%;
   padding: 10px;
+  color: var(--main-dark);
 }
