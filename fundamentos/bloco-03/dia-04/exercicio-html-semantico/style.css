@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100;300;400;500;600&display=swap");
+
+:root {
+  --primary: coral;
+  --main-green: green;
+  --main-dark: #0e0d0d;
+  --main-white: #f8f8f8;
+  --main-grey: #d4d4d4;
+  --dark-grey: #e5e5e5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Alegreya Sans SC", sans-serif;
+}
+
+body {
+  margin: auto;
+}
+
+nav {
+  background-color: var(--primary);
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+.links-wrapper {
+  margin: auto;
+  display: block;
+  width: fit-content;
+  height: 100%;
+}
+
+nav ul {
+  list-style: none;
+  height: inherit;
+}
+
+nav li {
+  display: inline-block;
+  min-width: 200px;
+  height: inherit;
+  padding: 15px;
+  text-align: center;
+}
+
+nav li a {
+  text-decoration: none;
+  color: var(--main-dark);
+  font-size: 1.2rem;
+}
+
+header {
+  position: relative;
+  background-color: var(--main-dark);
+  opacity: 0.88;
+}
+
+header img {
+  height: 60vh;
+  object-fit: cover;
+  margin: auto;
+  display: block;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2.3rem;
+  margin-bottom: 30px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: var(--main-white);
+}
+
+main {
+  width: 92%;
+  margin: auto;
+}
+
+#author-datetime {
+  display: block;
+  width: 100%;
+  border-top: 1px solid var(--main-grey);
+  padding: 20px 0;
+  font-weight: 300;
+}
+
+h2,
+h3 {
+  margin-bottom: 20px;
+}
+.strong {
+  font-weight: 500;
+}
+
+article {
+  padding: 50px 0;
+}
+
+#post-content {
+  display: inline-block;
+  max-width: 70%;
+}
+
+.article-section {
+  text-align: justify;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--main-grey);
+}
+
+.article-section:nth-last-of-type(1) {
+  border-bottom: none;
+}
+
+table {
+  text-align: center;
+  float: right;
+  width: 250px;
+  background-color: var(--dark-grey);
+  padding: 20px;
+  margin: 0 0 5px 20px;
+}
+
+caption {
+  caption-side: bottom;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+aside {
+  float: right;
+}
+
+.link-card {
+  background-color: var(--dark-grey);
+  border: 1px solid var(--primary);
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.link-card a {
+  text-decoration: none;
+  color: var(--main-white);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: var(--main-green);
+}
+
+.link-card a,
+.link-card img {
+  display: block;
+}
+
+footer {
+  background-color: var(--primary);
+  height: 40px;
+  text-align: center;
+}
+
+footer > p {
+  height: 100%;
+  padding: 10px;
+  color: var(--main-dark);
+}
