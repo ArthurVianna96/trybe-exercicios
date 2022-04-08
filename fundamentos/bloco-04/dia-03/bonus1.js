@@ -2,8 +2,8 @@
 
 const n = 5;
 let finalDrawing = '';
-for (let column = 0; column < n; column += 1){
-    for (let row = 0; row < n; row += 1){
+for (let row = 0; row < n; row += 1){
+    for (let column = 0; column < n; column += 1){
         finalDrawing += '* ';
     }
     finalDrawing += '\n';
