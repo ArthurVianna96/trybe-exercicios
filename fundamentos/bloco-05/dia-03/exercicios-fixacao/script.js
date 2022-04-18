@@ -21,6 +21,7 @@ function createDaysOfTheMonth() {
     for (let day of dezDaysList) {
         const dayElement = document.createElement('li');
         dayElement.innerText = day;
+        dayElement.style.cursor = 'pointer';
         dayElement.classList = 'day';
         if (holidays.includes(day)) dayElement.classList.add('holiday');
         if (fridays.includes(day)) dayElement.classList.add('friday');
@@ -97,14 +98,30 @@ for (let dayElement of daysOfTheMonth) {
     dayElement.addEventListener('mouseleave', (event) => {
         event.target.style.transform = 'scale(1.0)';
     })
+    dayElement.addEventListener('click', function markTaskForDay(event) {
+        const currentSelectedTask = document.querySelector('.selected');
+        if (!currentSelectedTask) {
+            alert('nenhuma tarefa selecionada');
+            return;
+        }
+        const currentSelectedColor = currentSelectedTask.style.backgroundColor;
+        if (event.target.style.color === currentSelectedColor) {
+            event.target.style.color = 'rgb(119,119,119)';
+        } else {
+            event.target.style.color = currentSelectedColor;
+        }
+    })
 }
 
 addTask('Cozinhar:', 'red');
+addTask('Estudar:', 'blue');
 
 const tasksList = document.getElementsByClassName('task');
 for (let task of tasksList) {
     task.addEventListener('click', (event) => {
-        event.target.classList.toggle('selected');
+        const currentSelectedTask = document.querySelector('.selected');
+        if(currentSelectedTask) currentSelectedTask.classList.remove('selected');
+        event.target.classList.add('selected');
     })
 }
 
