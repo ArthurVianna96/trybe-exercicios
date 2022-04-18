@@ -28,10 +28,10 @@ function createDaysOfTheMonth() {
     }
 }
 
-function createButton(parentNode, buttonIdName) {
+function createButton(parentNode, buttonIdName, buttonName) {
     const button = document.createElement('button');
     button.id = buttonIdName;
-    button.innerText = 'Feriados';
+    button.innerText = buttonName;
     button.style.cursor = 'pointer';
     parentNode.appendChild(button);
 }
@@ -55,12 +55,12 @@ createDaysOfTheWeek();
 createDaysOfTheMonth();
 
 const buttonsContainer = document.querySelector('.buttons-container');
-
-createButton(buttonsContainer, 'btn-holiday');
+createButton(buttonsContainer, 'btn-holiday', 'Feriados');
 
 const holidayButton = document.getElementById('btn-holiday');
-
 holidayButton.addEventListener('click', handleHolidayHighlight);
+
+createButton(buttonsContainer, 'btn-friday', 'Sexta-feira');
 
 
   
