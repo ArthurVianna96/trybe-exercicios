@@ -76,6 +76,28 @@ function addTask(taskName, color) {
     myTasks.appendChild(labelDivElement);
 }
 
+function addAppointmentEventListner() {
+    const input = document.getElementById('task-input');
+    const submitInputButton = document.getElementById('btn-add');
+    const appointmentList = document.querySelector('.task-list');
+
+    submitInputButton.addEventListener('click', () => addAppointment(input, appointmentList));
+    input.addEventListener('keyup', (event) => {
+        if(event.key === 'Enter') addAppointment(input, appointmentList);
+    });
+}
+
+function addAppointment(input, appointmentList) {
+    if (!input.value.length > 0) {
+        alert('Nenhum compromisso foi informado');
+    } else {
+        const newElement = document.createElement('li');
+        newElement.innerText = input.value;
+        appointmentList.appendChild(newElement);
+        input.value = '';
+    }
+}
+
 createDaysOfTheWeek();
 createDaysOfTheMonth();
 
@@ -124,6 +146,8 @@ for (let task of tasksList) {
         event.target.classList.add('selected');
     })
 }
+
+addAppointmentEventListner();
 
 
 
