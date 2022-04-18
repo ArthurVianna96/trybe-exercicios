@@ -63,6 +63,13 @@ function handleFridaysTextChange(fridaysArray) {
     }
 }
 
+function addTask(taskName) {
+    const myTasks = document.querySelector('.my-tasks');
+    const taskSpanElement = document.createElement('span');
+    taskSpanElement.innerText = taskName;
+    myTasks.appendChild(taskSpanElement);
+}
+
 createDaysOfTheWeek();
 createDaysOfTheMonth();
 
@@ -86,6 +93,10 @@ for (let dayElement of daysOfTheMonth) {
         event.target.style.transform = 'scale(1.0)';
     })
 }
+
+addTask('Cozinhar:')
+
+
 
 
   
