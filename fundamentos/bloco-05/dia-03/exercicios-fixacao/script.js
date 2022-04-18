@@ -51,6 +51,18 @@ function handleHolidayHighlight() {
     }
 }
 
+function handleFridaysTextChange(fridaysArray) {
+    const newText = 'SEXTOU! 🍻';
+    const fridaysList = document.getElementsByClassName('friday');
+    for (let index = 0; index < fridaysArray.length; index += 1) {
+        if (fridaysList[index].innerText === newText) {
+            fridaysList[index].innerText = fridaysArray[index];
+        } else {
+            fridaysList[index].innerText = newText;
+        }
+    }
+}
+
 createDaysOfTheWeek();
 createDaysOfTheMonth();
 
@@ -61,6 +73,9 @@ const holidayButton = document.getElementById('btn-holiday');
 holidayButton.addEventListener('click', handleHolidayHighlight);
 
 createButton(buttonsContainer, 'btn-friday', 'Sexta-feira');
+
+const fridaysButton = document.getElementById('btn-friday');
+fridaysButton.addEventListener('click', () => handleFridaysTextChange([4, 11, 18, 25]));
 
 
   
