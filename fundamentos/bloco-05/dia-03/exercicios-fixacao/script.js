@@ -77,5 +77,15 @@ createButton(buttonsContainer, 'btn-friday', 'Sexta-feira');
 const fridaysButton = document.getElementById('btn-friday');
 fridaysButton.addEventListener('click', () => handleFridaysTextChange([4, 11, 18, 25]));
 
+const daysOfTheMonth = document.getElementsByClassName('day');
+for (let dayElement of daysOfTheMonth) {
+    dayElement.addEventListener('mouseenter', (event) => {
+        event.target.style.transform = 'scale(1.7)';
+    })
+    dayElement.addEventListener('mouseleave', (event) => {
+        event.target.style.transform = 'scale(1.0)';
+    })
+}
+
 
   
