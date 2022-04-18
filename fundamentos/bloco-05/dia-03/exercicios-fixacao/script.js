@@ -35,13 +35,32 @@ function createButton(parentNode, buttonIdName) {
     button.style.cursor = 'pointer';
     parentNode.appendChild(button);
 }
-  
+
+function handleHolidayHighlight() {
+    const highlightColor = 'rgb(3,107,82)';
+    const transparentColor = 'rgb(238,238,238)';
+    const holidaysList = document.getElementsByClassName('holiday');
+    for (let holiday of holidaysList) {
+        if (holiday.style.backgroundColor) {
+            holiday.style.removeProperty('background-color');
+            holiday.style.removeProperty('color');
+        } else {
+            holiday.style.backgroundColor = highlightColor;
+            holiday.style.color = transparentColor;
+        }
+    }
+}
+
 createDaysOfTheWeek();
 createDaysOfTheMonth();
 
 const buttonsContainer = document.querySelector('.buttons-container');
 
 createButton(buttonsContainer, 'btn-holiday');
+
+const holidayButton = document.getElementById('btn-holiday');
+
+holidayButton.addEventListener('click', handleHolidayHighlight);
 
 
   
