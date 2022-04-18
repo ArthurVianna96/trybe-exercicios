@@ -68,7 +68,9 @@ function addTask(taskName, color) {
     const taskSpanElement = document.createElement('span');
     taskSpanElement.innerText = taskName;
     const labelDivElement = document.createElement('div');
+    labelDivElement.className = 'task';
     labelDivElement.style.backgroundColor = color;
+    labelDivElement.style.cursor = 'pointer';
     myTasks.appendChild(taskSpanElement);
     myTasks.appendChild(labelDivElement);
 }
@@ -98,6 +100,14 @@ for (let dayElement of daysOfTheMonth) {
 }
 
 addTask('Cozinhar:', 'red');
+
+const tasksList = document.getElementsByClassName('task');
+for (let task of tasksList) {
+    task.addEventListener('click', (event) => {
+        event.target.classList.toggle('selected');
+    })
+}
+
 
 
 
