@@ -63,11 +63,14 @@ function handleFridaysTextChange(fridaysArray) {
     }
 }
 
-function addTask(taskName) {
+function addTask(taskName, color) {
     const myTasks = document.querySelector('.my-tasks');
     const taskSpanElement = document.createElement('span');
     taskSpanElement.innerText = taskName;
+    const labelDivElement = document.createElement('div');
+    labelDivElement.style.backgroundColor = color;
     myTasks.appendChild(taskSpanElement);
+    myTasks.appendChild(labelDivElement);
 }
 
 createDaysOfTheWeek();
@@ -94,7 +97,7 @@ for (let dayElement of daysOfTheMonth) {
     })
 }
 
-addTask('Cozinhar:')
+addTask('Cozinhar:', 'red');
 
 
 
