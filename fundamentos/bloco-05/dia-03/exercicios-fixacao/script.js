@@ -27,9 +27,21 @@ function createDaysOfTheMonth() {
         monthDaysList.appendChild(dayElement);
     }
 }
+
+function createButton(parentNode, buttonIdName) {
+    const button = document.createElement('button');
+    button.id = buttonIdName;
+    button.innerText = 'Feriados';
+    button.style.cursor = 'pointer';
+    parentNode.appendChild(button);
+}
   
 createDaysOfTheWeek();
 createDaysOfTheMonth();
+
+const buttonsContainer = document.querySelector('.buttons-container');
+
+createButton(buttonsContainer, 'btn-holiday');
 
 
   
