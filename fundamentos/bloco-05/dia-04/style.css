@@ -76,8 +76,13 @@ h1 {
 
 main {
     padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 article {
     text-align: justify;
+    max-width: 1300px;
 }
