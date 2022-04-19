@@ -7,6 +7,9 @@ const bgColorSelectorTest = bgColorSelector.nextElementSibling;
 const colorSelector = document.getElementById('color-selector');
 const colorSelectorTest = colorSelector.nextElementSibling;
 
+const fontSizeSelector = document.getElementById('font-size-selector');
+const fontSizeSelectorTest = fontSizeSelector.nextElementSibling;
+
 const main = document.getElementsByTagName('main')[0];
 const article = document.getElementsByTagName('article')[0];
 
@@ -14,6 +17,7 @@ function initialRender() {
     if (localStorage.length === 0) {
         const defaultValues = {
             font: 'sans-serif',
+            fontSize: '13px',
             bgColor: 'light',
             color: 'dark'
         }
@@ -27,39 +31,44 @@ function initialRender() {
         if (userValues.bgColor === 'random') {
             bgColorSelectorTest.style.backgroundColor = randomRgbColor(); 
             main.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
+        } else {
+            bgColorSelectorTest.style.backgroundColor = `var(--${userValues.bgColor})`;
+            main.style.backgroundColor = `var(--${userValues.bgColor})`;
         }
-        bgColorSelectorTest.style.backgroundColor = userValues.bgColor;
-        main.style.backgroundColor = userValues.bgColor;
 
         if (userValues.color === 'random') {
             colorSelectorTest.style.color = randomRgbColor(); 
             main.style.color = colorSelectorTest.style.color;
+        } else {
+            colorSelectorTest.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
+            colorSelectorTest.style.color = `var(--${userValues.color})`;
         }
-        colorSelectorTest.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
-        colorSelectorTest.style.color = userValues.color;
-        main.style.color = userValues.color;
+        main.style.color = `var(--${userValues.color})`;
 
-        for (let option of fontSelector.children) {
-            if (option.innerText === userValues.font) {
-                option.setAttribute('selected', true);
-            }
-        }
+        fontSizeSelectorTest.style.fontSize = userValues.fontSize;
+        main.style.fontSize = userValues.fontSize;
 
-        for (let option of bgColorSelector.children) {
-            if (option.innerText === userValues.bgColor) {
-                option.setAttribute('selected', true);
-            }
-        }
-
-        for (let option of colorSelector.children) {
-            if (option.innerText === userValues.color) {
-                option.setAttribute('selected', true);
-            }
-        }
+        setSelectedInputs(userValues);
     }
 }
 
-initialRender();
+function setSelectedInputs(userValues) {
+    for (let option of fontSelector.children) {
+        if (option.innerText === userValues.font) {
+            option.setAttribute('selected', true);
+        }
+    }
+    for (let option of bgColorSelector.children) {
+        if (option.innerText === userValues.bgColor) {
+            option.setAttribute('selected', true);
+        }
+    }
+    for (let option of colorSelector.children) {
+        if (option.innerText === userValues.color) {
+            option.setAttribute('selected', true);
+        }
+    }
+}
 
 function randomInteger(max) {
     return Math.floor(Math.random()*(max + 1));
@@ -72,6 +81,8 @@ function randomRgbColor() {
     return `rgb(${r},${g},${b})`;
 };
 
+initialRender();
+
 fontSelector.addEventListener('change', (event) => {
 
     fontSelectorTest.style.fontFamily = event.target.value;
@@ -82,16 +93,26 @@ fontSelector.addEventListener('change', (event) => {
     localStorage.setItem('userPreferences', JSON.stringify(userValues));
 });
 
+fontSizeSelector.addEventListener('change', (event) => {
+    fontSizeSelectorTest.style.fontSize = event.target.value;
+    main.style.fontSize = event.target.value;
+
+    const userValues = JSON.parse(localStorage.getItem('userPreferences'));
+    userValues.fontSize = fontSizeSelectorTest.style.fontSize;
+    localStorage.setItem('userPreferences', JSON.stringify(userValues));
+})
+
 bgColorSelector.addEventListener('change', (event) => {
 
     if (event.target.value === 'random') {
         bgColorSelectorTest.style.backgroundColor = randomRgbColor();
         main.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
         colorSelectorTest.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
+    } else {
+        bgColorSelectorTest.style.backgroundColor = `var(--${event.target.value})`;
+        main.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
+        colorSelectorTest.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
     }
-    bgColorSelectorTest.style.backgroundColor = `var(--${event.target.value})`;
-    main.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
-    colorSelectorTest.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
 
     const userValues = JSON.parse(localStorage.getItem('userPreferences'));
     userValues.bgColor = event.target.value;
