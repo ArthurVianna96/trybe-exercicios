@@ -14,8 +14,8 @@ function initialRender() {
     if (localStorage.length === 0) {
         const defaultValues = {
             font: 'sans-serif',
-            bgColor: 'var(--light)',
-            color: 'var(--dark)'
+            bgColor: 'light',
+            color: 'dark'
         }
         localStorage.setItem('userPreferences', JSON.stringify(defaultValues));
     } else {
@@ -24,11 +24,38 @@ function initialRender() {
         fontSelectorTest.style.fontFamily = userValues.font;
         main.style.fontFamily = userValues.font;
 
+        if (userValues.bgColor === 'random') {
+            bgColorSelectorTest.style.backgroundColor = randomRgbColor(); 
+            main.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
+        }
         bgColorSelectorTest.style.backgroundColor = userValues.bgColor;
         main.style.backgroundColor = userValues.bgColor;
 
+        if (userValues.color === 'random') {
+            colorSelectorTest.style.color = randomRgbColor(); 
+            main.style.color = colorSelectorTest.style.color;
+        }
+        colorSelectorTest.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
         colorSelectorTest.style.color = userValues.color;
         main.style.color = userValues.color;
+
+        for (let option of fontSelector.children) {
+            if (option.innerText === userValues.font) {
+                option.setAttribute('selected', true);
+            }
+        }
+
+        for (let option of bgColorSelector.children) {
+            if (option.innerText === userValues.bgColor) {
+                option.setAttribute('selected', true);
+            }
+        }
+
+        for (let option of colorSelector.children) {
+            if (option.innerText === userValues.color) {
+                option.setAttribute('selected', true);
+            }
+        }
     }
 }
 
@@ -51,7 +78,7 @@ fontSelector.addEventListener('change', (event) => {
     main.style.fontFamily = fontSelectorTest.style.fontFamily;
 
     const userValues = JSON.parse(localStorage.getItem('userPreferences'));
-    userValues.font = bgColorSelectorTest.style.fontFamily;
+    userValues.font = fontSelectorTest.style.fontFamily;
     localStorage.setItem('userPreferences', JSON.stringify(userValues));
 });
 
@@ -60,32 +87,36 @@ bgColorSelector.addEventListener('change', (event) => {
     if (event.target.value === 'random') {
         bgColorSelectorTest.style.backgroundColor = randomRgbColor();
         main.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
+        colorSelectorTest.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
     }
-    bgColorSelectorTest.style.backgroundColor = event.target.value;
+    bgColorSelectorTest.style.backgroundColor = `var(--${event.target.value})`;
     main.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
+    colorSelectorTest.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
 
     const userValues = JSON.parse(localStorage.getItem('userPreferences'));
-    userValues.bgColor = bgColorSelectorTest.style.backgroundColor;
+    userValues.bgColor = event.target.value;
     localStorage.setItem('userPreferences', JSON.stringify(userValues));
 });
 
 colorSelector.addEventListener('change', (event) => {
 
     if (event.target.value === 'random') {
+        
         colorSelectorTest.style.color = randomRgbColor();
         main.style.color = colorSelectorTest.style.color;
-        colorSelectorTest.style.backgroundColor = 'var(--dark)';
-    } else if (event.target.value === 'var(--light)') {
-        colorSelectorTest.style.color = event.target.value;
-        main.style.color = event.target.value;
+        colorSelectorTest.style.backgroundColor = bgColorSelectorTest.style.backgroundColor;
+
+    } else if (`var(--${event.target.value})` === 'var(--light)') {
+        colorSelectorTest.style.color = `var(--${event.target.value})`;
+        main.style.color = `var(--${event.target.value})`;
         colorSelectorTest.style.backgroundColor = 'var(--dark)';
     } else {
-        colorSelectorTest.style.color = event.target.value;
-        main.style.color = event.target.value;
+        colorSelectorTest.style.color = `var(--${event.target.value})`;
+        main.style.color = `var(--${event.target.value})`;
         colorSelectorTest.style.backgroundColor = 'var(--light)';
     }
 
     const userValues = JSON.parse(localStorage.getItem('userPreferences'));
-    userValues.color = colorSelectorTest.style.color;
+    userValues.color = event.target.value;
     localStorage.setItem('userPreferences', JSON.stringify(userValues));
 })
