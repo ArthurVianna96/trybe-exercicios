@@ -10,6 +10,8 @@ const colorSelectorTest = colorSelector.nextElementSibling;
 const fontSizeSelector = document.getElementById('font-size-selector');
 const fontSizeSelectorTest = fontSizeSelector.nextElementSibling;
 
+const lineHeightSelector = document.getElementById('line-height-selector');
+
 const main = document.getElementsByTagName('main')[0];
 const article = document.getElementsByTagName('article')[0];
 
@@ -18,6 +20,7 @@ function initialRender() {
         const defaultValues = {
             font: 'sans-serif',
             fontSize: '13px',
+            lineHeight: '1.2rem',
             bgColor: 'light',
             color: 'dark'
         }
@@ -48,6 +51,8 @@ function initialRender() {
         fontSizeSelectorTest.style.fontSize = userValues.fontSize;
         main.style.fontSize = userValues.fontSize;
 
+        main.style.lineHeight = userValues.lineHeight;
+
         setSelectedInputs(userValues);
     }
 }
@@ -65,6 +70,16 @@ function setSelectedInputs(userValues) {
     }
     for (let option of colorSelector.children) {
         if (option.innerText === userValues.color) {
+            option.setAttribute('selected', true);
+        }
+    }
+    for (let option of fontSizeSelector.children) {
+        if (option.innerText === userValues.fontSize) {
+            option.setAttribute('selected', true);
+        }
+    }
+    for (let option of lineHeightSelector.children) {
+        if (option.getAttribute('value') === userValues.lineHeight) {
             option.setAttribute('selected', true);
         }
     }
@@ -139,5 +154,13 @@ colorSelector.addEventListener('change', (event) => {
 
     const userValues = JSON.parse(localStorage.getItem('userPreferences'));
     userValues.color = event.target.value;
+    localStorage.setItem('userPreferences', JSON.stringify(userValues));
+})
+
+lineHeightSelector.addEventListener('change', (event) => {
+    main.style.lineHeight = event.target.value;
+
+    const userValues = JSON.parse(localStorage.getItem('userPreferences'));
+    userValues.lineHeight = event.target.value;
     localStorage.setItem('userPreferences', JSON.stringify(userValues));
 })
