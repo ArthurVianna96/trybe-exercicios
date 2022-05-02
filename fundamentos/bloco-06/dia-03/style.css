@@ -25,6 +25,12 @@ header > h3 {
   width: 70px;
 }
 
+body section:first-of-type {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
 .gallery-img {
   width: 150px;
 }
