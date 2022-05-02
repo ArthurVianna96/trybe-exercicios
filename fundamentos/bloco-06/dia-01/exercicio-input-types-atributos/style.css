@@ -1,0 +1,68 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #036b52;
+    padding: 50px;
+    max-width: 300px;
+    border-radius: 3px;
+    box-shadow: 5px 10px 25px 1px rgba(0,0,0,0.3);
+}
+
+h2 {
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#email, #password {
+    width: 220px;
+    height: 25px;
+    border-radius: 3px;
+    border: none;
+    padding: 3px 10px;
+    margin: 5px 0 10px 0;
+}
+
+label {
+    color: white;
+}
+
+.inline {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.inline > label {
+    margin-right: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(202, 202, 71);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button:hover, input[type='checkbox']:hover {
+    cursor: pointer;
+}
+

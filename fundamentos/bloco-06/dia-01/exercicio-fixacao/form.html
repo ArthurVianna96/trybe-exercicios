@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>TrybeTrip</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<main>
+			<div class="logo-container">
+				<img class='logo' src="images/trybe-logo.webp" alt="logo-trybe">
+			</div>
+			<form action="" method='GET'>
+				<h2>Cadastro no TrybeTrip</h2>
+				<label for='name'>Nome</label>
+				<input type="text" name="name" id="name" placeholder="Digite seu nome" required autocomplete="off" autofocus>
+				<label for='email'>Email</label>
+				<input type="email" name="email" id="email" placeholder="Digite seu email" required autocomplete="off">
+				<label for="favorite-place">Destino preferido</label>
+				<fieldset id='favorite-place'>
+					<input type="radio" name="option" id='option1' checked>
+					<label for="option1">Cidade</label>
+					<input type="radio" name="option" id='option2'>
+					<label for="option2">Campo</label>
+					<input type="radio" name="option" id='option3'>
+					<label for="option3">Praia</label>
+					<input type="radio" name="option" id='option4'>
+					<label for="option4">Montanhas</label>
+				</fieldset>
+				<label for="answer">Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?</label>
+				<textarea name="answer" id="answer" cols="30" rows="7"></textarea>
+				<div class="inline">
+					<label for="date">data para sua viagem:</label>
+					<input type="date" name="date" id="date">
+				</div>
+				<div class="inline">
+					<label for="oportunities">Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?</label>
+					<input type="checkbox" name="oportunities" id="oportunities">
+				</div>
+				<div class="inline">
+					<label for="image-sharing">Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.</label>
+					<input type="checkbox" name="image-sharing" id="image-sharing">
+				</div>
+				<button id='submit-btn' type="submit">Enviar</button>
+				<button id='reset-btn' type="reset">Limpar</button>
+			</form>
+		</main>
+	<script src="script.js"></script>
+	</body>
+</html>
