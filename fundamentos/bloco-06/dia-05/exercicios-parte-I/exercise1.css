@@ -4,6 +4,8 @@
  */
  html {
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
   }
   
   *, *:before, *:after {
@@ -11,7 +13,8 @@
   }
   
   body {
-  
+    font-size: 1.1em;
+    padding: 0 10px;
   }
   
   article {
@@ -19,7 +22,7 @@
   }
   
   h1 {
-  
+    font-size: 1.6em;
   }
   
   h2 {
@@ -35,13 +38,58 @@
   }
   
   section {
-  
+    display: flex;
+    flex-direction: column;
   }
   
   figure {
-      margin: 0;
+      margin: 15px 0;
   }
   
   figcaption {
     font-size: .8em;
+  }
+
+  @media screen and (min-width: 750px) {
+      body {
+        background-color: red;
+        font-size: 1.2em;
+        margin: 50px;
+      }
+
+      section {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+      }
+
+      figure {
+          flex-basis: 45%;
+      }
+
+      figure:nth-of-type(odd){
+          margin-right: 10px;
+      }
+  }
+
+  @media screen and (min-width: 1200px) {
+    body {
+        background-color: blue;
+        font-size: 1.4em;
+        margin: 50px;
+        max-width: 80%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      section {
+          flex-direction: row;
+          flex-wrap: wrap;
+      }
+
+      figure {
+          flex-basis: auto;
+          margin-right: 10px;
+      }
   }
