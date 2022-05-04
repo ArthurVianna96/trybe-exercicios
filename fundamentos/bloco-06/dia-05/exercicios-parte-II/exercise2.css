@@ -1,0 +1,140 @@
+html {
+    box-sizing: border-box;
+}
+  
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgb(99, 26, 158, 1), rgba(99, 26, 158, 0.8) 30%, rgba(99, 26, 158, 0));
+    padding: 10px;
+    width: 100%;
+}
+
+header > p {
+    font-size: 1.2em;
+    color: white;
+}
+
+header > nav {
+    width: 100%;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+nav > ul li {
+    width: 33%;
+    text-align: center;
+}
+
+aside {
+    display: none;
+}
+
+article, footer {
+    text-align: justify;
+    padding: 15px;
+}
+
+article h1 {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+@media screen and (min-width: 850px) {
+    aside {
+        display: block;
+    }
+
+    .article-container {
+        display: flex;
+        justify-content: center;
+        max-width: 1200px;
+    }
+
+    .aside-container {
+        order: 1;
+        border-left: 1px solid black;
+        margin-left: 5px;
+        padding: 10px;
+    }
+
+    article {
+        flex-basis: 70%;
+    }
+
+    .aside-one, .aside-two {
+        display: flex;
+        flex-grow: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aside-two {
+        border-top: 1px solid black;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    header > nav {
+        max-width: 900px;
+    }
+
+    aside {
+        display: block;
+    }
+
+    .article-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 1200px;
+    }
+
+    .aside-container {
+        order: 0;
+        border-left: none;
+        padding: 10px;
+        display: flex;
+    }
+
+    article {
+        flex-basis: 70%;
+    }
+
+    .aside-one, .aside-two {
+        display: flex;
+        flex-grow: 0;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    .aside-two {
+        border-top: none;
+        border-left: 1px solid black;
+    }
+}
