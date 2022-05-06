@@ -22,6 +22,8 @@ const biggestWord = (sentence) => {
 
 console.log(biggestWord('Antônio foi no banheiro e não sabemos o que aconteceu'));
 
+// Descomente esse bloco para testar o exercício 3.
+
 // const button = document.getElementsByTagName('button')[0];
 // const h1 = document.getElementsByTagName('h1')[0];
 
