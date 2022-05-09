@@ -34,7 +34,32 @@ function getObjectSize(object) {
   return Object.keys(object).length;
 }
 
-addProprietyToLesson(lesson2, 'turno', 'noite');
+function getTotalStudents(allLessons) {
+  let total = 0;
+  Object.keys(allLessons).forEach(lesson => {
+    total += allLessons[lesson]['numeroEstudantes'];
+  }) 
+  return total;
+}
+
+function getValueByNumber(lesson, index) {
+  return Object.values(lesson)[index];
+}
+
+function verifyPair(object, key, value) {
+  let verifiedPair = false;
+  const keyValuesPairs = Object.entries(object);
+  keyValuesPairs.forEach(pair => {
+    const doesKeyExist = pair.includes(key);
+    const doesValueExist = pair.includes(value);
+    if (doesKeyExist && doesValueExist) {
+      verifiedPair = true;
+    }
+  })
+  return verifiedPair;
+}
+
+addProprietyToLesson(lesson2, 'professor', 'Carlos');
 console.log(lesson2);
 
 console.log(listLessonsProperties(lesson1));
@@ -43,4 +68,8 @@ console.log(getObjectSize(lesson1));
 
 const allLessons = Object.assign({}, { lesson1, lesson2, lesson3 });
 
+
 console.log(allLessons);
+console.log(getTotalStudents(allLessons));
+console.log(getValueByNumber(lesson1, 0));
+console.log(verifyPair(lesson3, 'turno', 'noite'));
