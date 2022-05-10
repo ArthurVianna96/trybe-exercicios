@@ -58,4 +58,29 @@ function decode(encodedString) {
   return addToArrayFromKey(decodeKeys, encodedString);
 }
 
-module.exports = { sum, myRemove, myFizzBuzz, encode, decode };
+function techList(arrayOfTecnologiesToLearn, name) {
+  if (arrayOfTecnologiesToLearn.length < 1) {
+    return 'Vazio!';
+  }
+  let tecnologiesToLearn = [];
+  arrayOfTecnologiesToLearn = arrayOfTecnologiesToLearn.sort();
+  for (let tecnology of arrayOfTecnologiesToLearn) {
+    let object = {
+      tech: tecnology,
+      name,
+    };
+    tecnologiesToLearn.push(object);
+  }
+  return tecnologiesToLearn;
+}
+
+function hydrate(sentence) {
+  let numberOfDrinks = sentence.match(/\d+/g);
+  let sum = 0;
+  for (let drink of numberOfDrinks) {
+    sum += parseInt(drink, 10);
+  }
+  return `${sum} copo${sum > 1 ? 's' : ''} de água`;
+}
+
+module.exports = { sum, myRemove, myFizzBuzz, encode, decode, techList, hydrate };
