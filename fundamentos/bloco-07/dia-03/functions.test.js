@@ -1,4 +1,4 @@
-const { sum, myRemove, myFizzBuzz } = require('./functions');
+const { sum, myRemove, myFizzBuzz, encode, decode } = require('./functions');
 
 describe('sum function', () => {
   it('should return 9 if a = 4 and b = 5', () => {
@@ -47,3 +47,34 @@ describe('myFizzBuzz', () => {
     expect(myFizzBuzz(notANumber)).toBeFalsy();
   });
 });
+
+describe('encode and decode function', () => {
+  it('encode should be a function', () => {
+    expect(typeof encode).toBe('function');
+  });
+  it('decode should be a function', () => {
+    expect(typeof decode).toBe('function');
+  });
+  it('should return a encoded string "12345" when "aeiou" is provided', () => {
+    expect(encode("aeiou")).toBe("12345");
+  });
+  it('should return a decoded string "aeiou" when "12345" is provided', () => {
+    expect(decode("12345")).toBe("aeiou");
+  });
+  it('should encode only the vowels from the input string', () => {
+    expect(encode("Teste1234")).toBe("T2st21234");
+  });
+  it('should decode only the numbers from the input string', () => {
+    expect(decode("Teste1234")).toBe("Testeaeio");
+  });
+  it('should return a encoded string with the same size as the input string', () => {
+    const string = 'teste';
+    const encodedString = encode(string);
+    expect(encodedString.length).toBe(string.length);
+  });
+  it('should return a decoded string with the same size as the input string', () => {
+    const string = 't2st2';
+    const decodedString = decode(string);
+    expect(decodedString.length).toBe(string.length);
+  });
+})

@@ -24,4 +24,38 @@ function myFizzBuzz(num) {
   return num;
 }
 
-module.exports = { sum, myRemove, myFizzBuzz };
+function addToArrayFromKey(keysObject, stringToCompare) {
+  const arrayOfCaracters = [];
+  for (let letter of stringToCompare) {
+    if (keysObject[letter]) {
+      arrayOfCaracters.push(keysObject[letter]);
+    } else {
+      arrayOfCaracters.push(letter);
+    }
+  }
+  return arrayOfCaracters.join('');
+}
+
+function encode(stringToEncode) {
+  const encodeKeys = {
+    a: 1,
+    e: 2,
+    i: 3,
+    o: 4,
+    u: 5,
+  };
+  return addToArrayFromKey(encodeKeys, stringToEncode);
+}
+
+function decode(encodedString) {
+  const decodeKeys = {
+    1: 'a',
+    2: 'e',
+    3: 'i',
+    4: 'o',
+    5: 'u',
+  };
+  return addToArrayFromKey(decodeKeys, encodedString);
+}
+
+module.exports = { sum, myRemove, myFizzBuzz, encode, decode };
