@@ -1,4 +1,4 @@
-const { sum, myRemove } = require('./functions');
+const { sum, myRemove, myFizzBuzz } = require('./functions');
 
 describe('sum function', () => {
   it('should return 9 if a = 4 and b = 5', () => {
@@ -25,5 +25,25 @@ describe('myRemove function', () => {
   });
   it('should return the same array if the item input is not contained inside the input array', () => {
     expect(myRemove(testArray, 5)).toEqual(testArray);
+  });
+});
+
+describe('myFizzBuzz', () => {
+  it('should return "fizzbuzz" if "num" is divisible by 3 and 5', () => {
+    expect(myFizzBuzz(15)).toBe("fizzbuzz");
+  });
+  it('should return "fizz" if "num" is divisible only by 3', () => {
+    expect(myFizzBuzz(6)).toBe("fizz");
+  });
+  it('should return "buzz" if "num" is divisible only by 5', () => {
+    expect(myFizzBuzz(10)).toBe("buzz");
+  });
+  it('should return "num" if "num" is not divisible by 3 and 5', () => {
+    const num = 11;
+    expect(myFizzBuzz(num)).toBe(num);
+  });
+  it('should return false if "num" is not a number', () => {
+    const notANumber = 'notANumber';
+    expect(myFizzBuzz(notANumber)).toBeFalsy();
   });
 });
