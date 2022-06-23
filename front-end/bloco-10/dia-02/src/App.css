@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.pokedex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+header {
+  background-color: red;
+  height: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+header > img {
+  height: 300px;
+  transform: translateY(-25%);
+}
+
+.pokemons {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
